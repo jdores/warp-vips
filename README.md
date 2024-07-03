@@ -1,1 +1,1 @@
-This worker will make a mapping of the device ips to WARP virtual IPs
+This worker will make a mapping of the Device IDs to WARP Virtual IPs.
