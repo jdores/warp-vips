@@ -12,7 +12,7 @@ export default {
 	  const userEmail = env.USER_EMAIL;
 	  const apiKey = env.API_KEY;
 
-	  // Optimization - Stop the worker if using browser is requesting favicon.ico
+	  // Optimization - Stop the worker if browser is requesting favicon.ico
 	  const urlRequest = new URL(request.url);
 	  const checkFavicon = urlRequest.pathname.slice(1);
 	  if(checkFavicon == "favicon.ico"){
