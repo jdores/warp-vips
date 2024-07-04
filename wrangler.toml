@@ -6,6 +6,7 @@ compatibility_flags = ["nodejs_compat"]
 
 [vars]
 STORE_R2 = true
+R2_FILENAME = "warp_vips.json"
 
 [[r2_buckets]]
 binding = "MY_BUCKET"

@@ -75,7 +75,8 @@ export default {
 
 		// STEP 03 - Store output in R2. Only runs if environmental variable STORE_R2 in wrangler.toml is set to true
 		if(env.STORE_R2){ 
-			const objectName = `warp_vips_${new Date().toISOString()}.json`;
+			//const objectName = `warp_vips_${new Date().toISOString()}.json`;
+			const objectName = env.R2_FILENAME;
 			const uploadFile = new Blob([jsonOutput], { type: 'application/json' });
 			await env.MY_BUCKET.put(objectName, uploadFile);
 		}
