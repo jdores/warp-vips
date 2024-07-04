@@ -12,6 +12,13 @@ export default {
 	  const userEmail = env.USER_EMAIL;
 	  const apiKey = env.API_KEY;
 
+	  // Optimization - Stop the worker if using browser is requesting favicon.ico
+	  const urlRequest = new URL(request.url);
+	  const checkFavicon = urlRequest.pathname.slice(1);
+	  if(checkFavicon == "favicon.ico"){
+		return new Response(null, { status: 204 });
+	  }
+
 	  // STEP 01 - Get devices
 	  const devicesUrl = `https://api.cloudflare.com/client/v4/accounts/${accountId}/devices`;
 	  const response = await fetch(devicesUrl, {
@@ -73,6 +80,7 @@ export default {
 			await env.MY_BUCKET.put(objectName, uploadFile);
 		}
 
+		// STEP 04 - Worker provides a response
 		return new Response(jsonOutput, {
 		  headers: { 'Content-Type': 'application/json' }
 		});
