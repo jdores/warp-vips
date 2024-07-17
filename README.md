@@ -1,5 +1,5 @@
 
-  This worker will make a mapping of device ids to virtual IPs
+  This Cloudflare worker will make a mapping of device ids to virtual IPs
   
   The worker can be triggered on demand when querying the worker hostname AND according to a cron schedule
   

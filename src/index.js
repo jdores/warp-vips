@@ -72,6 +72,7 @@ async function handleRequest(request, env) {
 		  id: device.id,
 		  email: device.user.email,
 		  name: device.name,
+		  type : device.device_type, 
 		  vip: VirtualIps[0].device_ips.ipv4
 		});
 	  } else {
@@ -79,6 +80,7 @@ async function handleRequest(request, env) {
 		  id: device.id,
 		  email: device.user.email,
 		  name: device.name,
+		  type : device.device_type,
 		  vip: 'Unknown'  // Handle case where details could not be fetched
 		});
 	  }
